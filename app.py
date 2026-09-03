@@ -5,9 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-# ---------------------------------------------------------
-# PAGE CONFIGURATION
-# ---------------------------------------------------------
+# Page Configuration
 
 st.set_page_config(
     page_title="Number1CV | Rutik Tambe",
@@ -16,19 +14,13 @@ st.set_page_config(
 )
 
 
-# ---------------------------------------------------------
-# CUSTOM CSS
-# ---------------------------------------------------------
+# Custom CSS
 
 st.markdown("""
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-
-/* ---------------------------------------------------------
-   GLOBAL FONT
---------------------------------------------------------- */
 
 html,
 body,
@@ -38,19 +30,12 @@ body,
 }
 
 
-/* ---------------------------------------------------------
-   BACKGROUND
-   Let Streamlit control Light / Dark Mode automatically
---------------------------------------------------------- */
+/* Let Streamlit control Light / Dark Mode automatically */
 
 .stApp {
     background: transparent !important;
 }
 
-
-/* ---------------------------------------------------------
-   MAIN CONTAINER
---------------------------------------------------------- */
 
 .block-container {
     max-width: 900px;
@@ -59,16 +44,13 @@ body,
 }
 
 
-/* ---------------------------------------------------------
-   LOGO
---------------------------------------------------------- */
+/* Logo */
 
 .main-title {
     text-align: center;
     font-size: 88px;
     font-weight: 900;
 
-    /* Automatically follows Streamlit theme */
     color: inherit;
 
     letter-spacing: -5px;
@@ -79,10 +61,6 @@ body,
         0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-
-/* ---------------------------------------------------------
-   RED NUMBER 1
---------------------------------------------------------- */
 
 .logo-one {
     display: inline-flex;
@@ -116,10 +94,6 @@ body,
 }
 
 
-/* ---------------------------------------------------------
-   TAGLINE
---------------------------------------------------------- */
-
 .subtitle {
     text-align: center;
     font-size: 17px;
@@ -132,9 +106,7 @@ body,
 }
 
 
-/* ---------------------------------------------------------
-   HEADINGS
---------------------------------------------------------- */
+/* Headings */
 
 h1,
 h2,
@@ -143,59 +115,41 @@ h3 {
 }
 
 
-/* ---------------------------------------------------------
-   TEXT INPUT
---------------------------------------------------------- */
+/* Inputs */
 
 [data-testid="stTextInput"] input {
     border-radius: 12px !important;
 }
 
 
-/* ---------------------------------------------------------
-   TEXT AREA
---------------------------------------------------------- */
-
 [data-testid="stTextArea"] textarea {
     border-radius: 12px !important;
 }
 
 
-/* ---------------------------------------------------------
-   FILE UPLOADER
---------------------------------------------------------- */
+/* File Uploader */
 
 [data-testid="stFileUploader"] {
     padding: 18px;
-
     border-radius: 16px;
 }
 
 
-/* ---------------------------------------------------------
-   UPLOAD BUTTON
---------------------------------------------------------- */
-
 [data-testid="stFileUploader"] button {
     border-radius: 10px !important;
-
     font-weight: 600 !important;
 }
 
 
-/* ---------------------------------------------------------
-   ANALYZE BUTTON
---------------------------------------------------------- */
+/* Analyze Button */
 
 .stButton > button {
     height: 54px;
 
     border-radius: 14px;
-
     border: none;
 
     font-size: 16px;
-
     font-weight: 700;
 
     color: white !important;
@@ -210,8 +164,7 @@ h3 {
     box-shadow:
         0 8px 18px rgba(0, 0, 0, 0.18);
 
-    transition:
-        all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 
@@ -223,47 +176,36 @@ h3 {
             #b30000
         );
 
-    transform:
-        translateY(-1px);
+    transform: translateY(-1px);
 }
 
 
-/* ---------------------------------------------------------
-   METRIC
---------------------------------------------------------- */
+/* Metrics */
 
 [data-testid="stMetric"] {
     padding: 20px;
-
     border-radius: 16px;
 }
 
 
-/* ---------------------------------------------------------
-   PROGRESS BAR
---------------------------------------------------------- */
+/* Progress Bar */
 
 .stProgress > div > div {
     background-color: #e50914 !important;
 }
 
 
-/* ---------------------------------------------------------
-   FOOTER
---------------------------------------------------------- */
+/* Footer */
 
 .footer {
     text-align: center;
-
     padding: 25px 10px 15px;
-
     width: 100%;
 }
 
 
 .footer-name {
     font-size: 17px;
-
     font-weight: 700;
 
     color: inherit;
@@ -297,9 +239,7 @@ h3 {
 }
 
 
-/* ---------------------------------------------------------
-   MOBILE RESPONSIVE
---------------------------------------------------------- */
+/* Mobile Responsive */
 
 @media (max-width: 768px) {
 
@@ -312,16 +252,13 @@ h3 {
 
     .main-title {
         font-size: 58px;
-
         letter-spacing: -3px;
     }
 
 
     .logo-one {
         width: 54px;
-
         height: 54px;
-
         font-size: 34px;
     }
 
@@ -335,9 +272,6 @@ h3 {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# PDF TEXT EXTRACTION
-# ---------------------------------------------------------
 
 def extract_text_from_pdf(uploaded_file):
 
@@ -360,9 +294,7 @@ def extract_text_from_pdf(uploaded_file):
         return ""
 
 
-# ---------------------------------------------------------
-# HEADER
-# ---------------------------------------------------------
+# Header
 
 st.markdown(
     """
@@ -387,9 +319,7 @@ st.markdown(
 st.divider()
 
 
-# ---------------------------------------------------------
-# INTRODUCTION
-# ---------------------------------------------------------
+# Introduction
 
 st.info(
     "Upload a candidate's resume and enter the job requirements. "
@@ -397,9 +327,7 @@ st.info(
 )
 
 
-# ---------------------------------------------------------
-# USER INPUT
-# ---------------------------------------------------------
+# Resume Upload
 
 st.subheader("Upload Candidate Resume")
 
@@ -410,9 +338,7 @@ uploaded_file = st.file_uploader(
 )
 
 
-# ---------------------------------------------------------
-# JOB DESCRIPTION
-# ---------------------------------------------------------
+# Job Description
 
 st.subheader("Job Description")
 
@@ -433,9 +359,7 @@ Data Visualization
 )
 
 
-# ---------------------------------------------------------
-# REQUIRED SKILLS
-# ---------------------------------------------------------
+# Required Skills
 
 st.subheader("Required Skills")
 
@@ -446,19 +370,12 @@ skills_input = st.text_input(
 )
 
 
-# ---------------------------------------------------------
-# ANALYZE BUTTON
-# ---------------------------------------------------------
+# Analyze Resume
 
 if st.button(
     "Analyze Candidate",
     use_container_width=True
 ):
-
-
-    # -----------------------------------------------------
-    # INPUT VALIDATION
-    # -----------------------------------------------------
 
     if uploaded_file is None:
 
@@ -476,11 +393,6 @@ if st.button(
 
     else:
 
-
-        # -------------------------------------------------
-        # EXTRACT RESUME TEXT
-        # -------------------------------------------------
-
         resume_text = extract_text_from_pdf(uploaded_file)
 
 
@@ -493,11 +405,6 @@ if st.button(
 
 
         else:
-
-
-            # -------------------------------------------------
-            # RESUME MATCH SCORE
-            # -------------------------------------------------
 
             try:
 
@@ -537,20 +444,15 @@ if st.button(
                 )
 
 
-            # Keep score between 0 and 100
-
             match_score = max(
                 0,
                 min(match_score, 100)
             )
 
 
-            # -------------------------------------------------
-            # SCREENING RESULT
-            # -------------------------------------------------
+            # Screening Result
 
             st.divider()
-
 
             st.subheader(
                 "Candidate Screening Result"
@@ -567,10 +469,6 @@ if st.button(
                 int(match_score)
             )
 
-
-            # -------------------------------------------------
-            # MATCH RESULT MESSAGE
-            # -------------------------------------------------
 
             if match_score >= 70:
 
@@ -596,12 +494,9 @@ if st.button(
                 )
 
 
-            # -------------------------------------------------
-            # SKILLS ANALYSIS
-            # -------------------------------------------------
+            # Skills Analysis
 
             if skills_input.strip():
-
 
                 skills = [
 
@@ -641,7 +536,6 @@ if st.button(
 
                 st.divider()
 
-
                 st.subheader(
                     "Skills Analysis"
                 )
@@ -650,12 +544,7 @@ if st.button(
                 col1, col2 = st.columns(2)
 
 
-                # -------------------------------------------------
-                # MATCHED SKILLS COLUMN
-                # -------------------------------------------------
-
                 with col1:
-
 
                     st.success(
                         "Matched Skills"
@@ -677,12 +566,7 @@ if st.button(
                         )
 
 
-                # -------------------------------------------------
-                # MISSING SKILLS COLUMN
-                # -------------------------------------------------
-
                 with col2:
-
 
                     st.error(
                         "Missing Skills"
@@ -703,10 +587,6 @@ if st.button(
                             "No missing skills found."
                         )
 
-
-                # -------------------------------------------------
-                # SKILL MATCH SCORE
-                # -------------------------------------------------
 
                 if skills:
 
@@ -746,9 +626,7 @@ if st.button(
                 )
 
 
-            # -------------------------------------------------
-            # EXTRACTED RESUME TEXT
-            # -------------------------------------------------
+            # Extracted Resume Text
 
             st.divider()
 
@@ -762,14 +640,11 @@ if st.button(
                 )
 
 
-            # -------------------------------------------------
-            # HOW IT WORKS
-            # -------------------------------------------------
+            # How It Works
 
             with st.expander(
                 "How does Number1CV work?"
             ):
-
 
                 st.markdown(
                     """
@@ -788,9 +663,7 @@ if st.button(
                 )
 
 
-# ---------------------------------------------------------
-# FOOTER
-# ---------------------------------------------------------
+# Footer
 
 st.divider()
 
