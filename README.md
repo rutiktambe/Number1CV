@@ -16,8 +16,6 @@
 
 <img src="https://img.shields.io/badge/NLP-Resume%20Analysis-E50914?style=for-the-badge">
 
-<img src="https://img.shields.io/badge/License-MIT-111111?style=for-the-badge">
-
 </p>
 
 <img src="https://readme-typing-svg.demolab.com?font=Poppins&size=22&pause=1000&color=E50914&center=true&width=850&lines=Resume+Screening;Job+Description+Matching;Machine+Learning;Natural+Language+Processing;Streamlit+Application"/>
@@ -87,16 +85,18 @@ Skills Analysis
       │
       ▼
 Interactive Dashboard
+```
 
 ---
 
-## 👨‍💻 Author
+
+# 👨‍💻 Author
 
 <div align="center">
 
-### **RUTIK TAMBE**
+### RUTIK TAMBE
 
-**Python Developer | Data Science | Machine Learning**
+**Python | Machine Learning | Data Science | AI**
 
 <a href="https://github.com/rutiktambe">
 <img src="https://img.shields.io/badge/GitHub-rutiktambe-181717?style=for-the-badge&logo=github&logoColor=white">
@@ -104,7 +104,7 @@ Interactive Dashboard
 
 <br><br>
 
-*Building intelligent solutions with Python, Machine Learning, and AI.*
+*Building intelligent solutions with Python, Machine Learning & AI.*
 
 </div>
 
